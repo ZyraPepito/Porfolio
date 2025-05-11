@@ -51,12 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
   typeEffect();
 });
 
-//Menu Toggle
+// Menu Toggle
 const toggle = document.querySelector('.menu-toggle');
 const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('.navbar a');
 
 if (toggle && navbar) {
   toggle.addEventListener('click', () => {
     navbar.classList.toggle('active');
+  });
+  
+  // Close menu when a link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+    });
   });
 }
